@@ -1,0 +1,105 @@
+---
+title: "Plots"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+## Three plots plots
+
+```{r}
+library(tidyverse)
+library(httr)
+library(jsonlite)
+library(p8105.datasets)
+library(plotly)
+library(lubridate)
+data(rest_inspec)
+```
+
+### Plot 1 Scatterplot
+
+```{r}
+#scatterplot for different longtitude and lat for grade
+nyc_inspection = rest_inspec |>
+  drop_na() |>
+  select(boro, cuisine_description, inspection_date, score, grade, street, zipcode) |>
+  mutate(
+    inspection_year = as.factor(year(as.Date(inspection_date))),
+    grade = as.factor(grade),
+    cuisine_description = case_when(
+      cuisine_description == "Latin (Cuban, Dominican, Puerto Rican, South & Central American)" ~ "Latin",
+      TRUE ~ cuisine_description  # Leave other values as they are
+    )
+  )
+```
+
+
+```{r}
+nyc_inspection|>filter(boro=="MANHATTAN")|>
+  plot_ly(x = ~street, y = ~score, 
+                        type = "scatter", mode = "markers", 
+                        color = ~inspection_year,  colors = "viridis", alpha = 0.5)|>
+  layout(
+    title = "Inspection Scores by different street and year in Manhattan",
+    xaxis = list(title = "Street"),
+    yaxis = list(title = "Score"),
+    legend = list(title = list(text = "year"))
+  )
+```
+
+### Plot 2 bar plot
+
+Since too many cuisine types, I just focused on the top 10 most frequent cuisine types
+```{r}
+nyc_inspection |>
+  group_by(cuisine_description) |>
+  summarise(count = n(), .groups = "drop") |>
+  arrange(desc(count)) |>
+  slice_head(n = 10) |>  # Select top 10 cuisines
+  inner_join(nyc_inspection, by = "cuisine_description") |>  # Filter original data for top 10 cuisines
+  group_by(cuisine_description, grade) |>
+  summarise(grade_level_count = n()) |>
+  plot_ly(
+    x = ~cuisine_description, 
+    y = ~grade_level_count, 
+    color = ~grade, 
+    type = "bar", 
+    colors = "viridis"
+  ) |>
+  layout(
+    title = "Grade Level Counts by Top 10 Cuisine Types",
+    xaxis = list(title = "Cuisine Type", tickangle = 60),
+    yaxis = list(title = "Grade Level Count")
+  )
+
+```
+
+
+### Plot 3 - boxplot
+
+```{r}
+#scores for top 15 cuisine
+nyc_inspection |>
+  group_by(cuisine_description) |>
+  summarise(count = n(), .groups = "drop") |>
+  arrange(desc(count)) |>
+  slice_head(n = 15) |>  # Select the top 15 cuisines
+  inner_join(nyc_inspection, by = "cuisine_description") |>
+  plot_ly(
+    x = ~cuisine_description, 
+    y = ~score, 
+    color = ~cuisine_description, 
+    type = 'box', 
+    colors = "viridis"
+  ) |>
+  layout(
+    title = "Inspection Scores distribution by Cuisine Type",
+    xaxis = list(title = "Cuisine Type", tickangle = 90),
+    yaxis = list(title = "Score")
+  )
+
+```
+
+
