@@ -1,0 +1,25 @@
+---
+title: "Avery Wang's website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+## Introduction:
+
+Hi, this is Avery Wang's website. I am currently a first year master student majoring in Biostatistics with the focus of Public Health Data Science. From this website, it can be found with some of my academic and professional experiences and the plots for NYC Restaurants Inspections.
+
+
+## Resume 
+Learn more about my resume, visit [this page](about.html)
+
+## Plots
+Here are some plots for NYC restaurants, visit [this page](plots.html)
+
+## Dashboard
+
+Here is the dashboard for NYC restaurants inspection, visit [this page](dashboard.html)
+
+
