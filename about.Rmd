@@ -1,0 +1,56 @@
+---
+title: "Avery Wang's website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+### HIGHLIGHTS
+
+*	Current Biostatistics student with solid technical skills proven through 3 years internship experience in IT sector, Finance and Manufacturing industry.
+*	Experienced in extracting business insights through technical approaches such as data analysis, machine learning and statistical analysis.
+* Skilled in communicating with both technical and non-technical business stakeholders using data visualization 
+
+### TECHNICAL
+* Programming Languages: Python, R, SQL, Java, C++, HTML, CSS, JavaScript, PHP
+
+* Data Science & Analytics: ETL, Data pipeline (Cleansing, Wrangling, Modeling, Visualization, Interpretation) Statistics, Time Series, Experiential design, Casual inference, Machine Learning, A/B testing, Tableau
+
+* Big data: Apache Hadoop, Spark, Hive
+
+
+### Education
+
+* Master of Biostatistics, Columbia University, Sept. 2024- current
+
+* Bachelor of Computer Science and Data Science, New York University, Sept. 2020 - May 2024
+  * Minor in Web Programming and Application
+
+
+### Projects / Research
+
+* Udacity user engagement with A/B testing
+
+  *	Recommended strategies for enhancing user engagement and customer satisfaction by designing and executing a comprehensive experiment (A/B Testing) aimed at optimizing the student experience at Udacity.
+  
+  *	Designed metrics including Retention and Gross conversion rate for the experiment, offered strategic advice on adopting a new trial framework, and suggested enhancements to sample size and the duration of the experiment to achieve precise outcomes. 
+  
+  *	Conducted hypothesis testing to give insights into Udacity’s strategic decisions.
+
+* Detected disease from Clinical text and images (Research Experience)                          
+  * Sourced extensive medical images and clinical data from DFUC, TCGA, and HyperKvasir for comprehensive analysis. Cleaned the text datasets and preprocessed images using normalization, resizing and data augmentation.
+  
+  * Generated multimodal deep learning operations by integrating robust algorithms: fine-tuning support vector machine (SVM), convolutional neural networks (MobileNet, Inception) for image data, and optimizing NLP models for text analysis.
+  
+  * Implemented the fusion of models via innovative attention-based and operation-based methods to enrich feature sets and enhance model performance, achieving an accuracy range of 90% to 92%. Developed a GUI to present prediction results.
+
+
+### WORK EXPERIENCE
+
+* Data Scientist Intern - DeFiner Labs
+* Data Analyst Intern - Microsoft Corp.
+* Data Analyst Intern - Noah Holdings Group
+
+
